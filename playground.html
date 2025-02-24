@@ -9,7 +9,8 @@
     <div id="app">
       <h1>Counter</h1>
       <p>{{count}}</p>
-      <button v-on:click="incrementCount">Increment</button>
+      <button @:click="incrementCount(10)">Increment</button>
+      <!-- et ovo ili v-on je isto et je sinttic sugar  -->
       <div>
         <h2>{{incrementAmount}}</h2>
         <label for="incrementAmount">Increment by</label>
@@ -37,7 +38,9 @@
           };
         },
         methods: {
-          incrementCount() {
+          incrementCount(amount) {
+            console.log(amount, "amount");
+            // console.log(event);
             this.count += this.incrementAmount;
           },
         },
