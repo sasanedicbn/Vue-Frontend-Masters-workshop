@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What would you do?</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Counter</h1>
+      <p>{{count}}</p>
+      <button v-on:click="incrementCount">Increment</button>
+      <p v-if="charactersList.length === 0">There are no characters</p>
+      <ul v-else>
+        <li v-for="character of charactersList">{{character.name}}</li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            count: 0,
+            charactersList: [
+              { name: "Jovan" },
+              { name: "Etel" },
+              { name: "Roman" },
+              { name: "Emanuel" },
+            ],
+          };
+        },
+        methods: {
+          incrementCount() {
+            this.count++;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

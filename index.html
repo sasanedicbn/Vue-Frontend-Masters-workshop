@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <p v-if="charactersList.length === 0">There are is not caracthers</p>
-      <ul>
+      <ul v-else>
         <li v-for="character in charactersList">{{character.name}}</li>
       </ul>
     </div>
