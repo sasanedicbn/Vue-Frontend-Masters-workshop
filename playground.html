@@ -8,13 +8,14 @@
   <body>
     <div id="app">
       <h1>Counter</h1>
-      <p>{{count}}</p>
-      <button @:click="incrementCount(10)">Increment</button>
+      <p v-bind:data-increment-by="incrementAmount">{{count}}</p>
+      <button @:click="incrementCount(10, $event)">Increment</button>
       <!-- et ovo ili v-on je isto et je sinttic sugar  -->
       <div>
         <h2>{{incrementAmount}}</h2>
         <label for="incrementAmount">Increment by</label>
         <input type="number" v-model="incrementAmount" />
+        <!-- v-model === two-way bng -->
       </div>
       <hr />
       <p v-if="charactersList.length === 0">There are no characters</p>
@@ -22,6 +23,7 @@
         <li v-for="character of charactersList">{{character.name}}</li>
       </ul>
     </div>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
       Vue.createApp({
@@ -40,7 +42,7 @@
         methods: {
           incrementCount(amount) {
             console.log(amount, "amount");
-            // console.log(event);
+            console.log(event);
             this.count += this.incrementAmount;
           },
         },
