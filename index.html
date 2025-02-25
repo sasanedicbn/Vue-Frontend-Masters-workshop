@@ -9,7 +9,14 @@
     <div id="app">
       <p v-if="charactersList.length === 0">There are is not caracthers</p>
       <ul v-else>
-        <li v-for="character in charactersList">{{character.name}}</li>
+        <li v-for="character in charactersList">
+          <p>
+            {{character.name}}
+            <button @:click="addFavouriteCharacters(character.name)">
+              Favourite
+            </button>
+          </p>
+        </li>
       </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -22,7 +29,13 @@
             { name: "Roaman" },
             { name: "Emanuel" },
           ],
+          favourteCharacter: [],
         }),
+        methods: {
+          addFavouriteCharacters(character) {
+            favourteCharacter.push(character);
+          },
+        },
       }).mount("#app");
     </script>
   </body>
