@@ -20,9 +20,10 @@
       </ul>
       <hr />
       <h2>This is favourite characters</h2>
-      <ul>
+      <ul v-if="favourteCharacter.length > 0">
         <li v-for="favCharacter of favourteCharacter">{{favCharacter}}</li>
       </ul>
+      <p v-else>There are not fav characters yet.</p>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
