@@ -18,6 +18,11 @@
           </p>
         </li>
       </ul>
+      <hr />
+      <h2>This is favourite characters</h2>
+      <ul>
+        <li v-for="favCharacter of favourteCharacter">{{favCharacter}}</li>
+      </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -33,7 +38,8 @@
         }),
         methods: {
           addFavouriteCharacters(character) {
-            favourteCharacter.push(character);
+            console.log(character);
+            this.favourteCharacter.push(character);
           },
         },
       }).mount("#app");
