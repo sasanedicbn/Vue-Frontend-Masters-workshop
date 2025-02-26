@@ -33,6 +33,12 @@
         v-model="newCharacters.name"
         @keyup.enter="addFavouriteCharacters"
       />
+      <hr />
+      <hr />
+      <input type="text" v-model="searchQuery" />
+      <ul>
+        <li v-for="item in searchInput" :key="item.name">{{ item.name }}</li>
+      </ul>
       <!-- <button @:click="addFavouriteCharacters(newCharacter)">
         Add new charater
       </button> -->
@@ -43,6 +49,7 @@
     <script>
       Vue.createApp({
         data: () => ({
+          searchQuery: "",
           newCharacters: {
             name: "",
           },
@@ -51,6 +58,11 @@
             { name: "Eted" },
             { name: "Roaman" },
             { name: "Emanuel" },
+            { name: "Sasa" },
+            { name: "Jovan" },
+            { name: "Amanuel" },
+            { name: "Ber" },
+            { name: "Kord" },
           ],
           favourteCharacter: [],
         }),
@@ -58,6 +70,13 @@
           addFavouriteCharacters(character) {
             this.favourteCharacter.push(this.newCharacters.name);
             this.newCharacters.name = "";
+          },
+        },
+        computed: {
+          searchInput() {
+            return this.charactersList.filter((item) =>
+              item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
           },
         },
       }).mount("#app");
