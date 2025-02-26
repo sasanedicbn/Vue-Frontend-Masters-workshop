@@ -39,6 +39,7 @@
       <ul>
         <li v-for="item in searchInput" :key="item.name">{{ item.name }}</li>
       </ul>
+      <h4>Total price: {{totalPrice}}</h4>
       <!-- <button @:click="addFavouriteCharacters(newCharacter)">
         Add new charater
       </button> -->
@@ -60,10 +61,8 @@
             { name: "Emanuel" },
             { name: "Sasa" },
             { name: "Jovan" },
-            { name: "Amanuel" },
-            { name: "Ber" },
-            { name: "Kord" },
           ],
+          cartItems: [{ price: 10 }, { price: 20 }, { price: 30 }],
           favourteCharacter: [],
         }),
         methods: {
@@ -76,6 +75,12 @@
           searchInput() {
             return this.charactersList.filter((item) =>
               item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+            );
+          },
+          totalPrice() {
+            return this.cartItems.reduce(
+              (total, item) => total + item.price,
+              0
             );
           },
         },
