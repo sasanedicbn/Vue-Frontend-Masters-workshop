@@ -15,6 +15,6 @@ export default {
 
 <template>
   <h1>Hello from my frist Vue component</h1>
-  <button>+</button>
+  <button @click="increaseCounter">+</button>
   <span>{{ counter }}</span>
 </template>
