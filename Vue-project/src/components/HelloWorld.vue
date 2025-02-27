@@ -13,7 +13,7 @@ export default {
       this.counter++
     },
     decreaseCounter(){
-      if(this.counter < 0) return
+      if(this.counter === 0) return
         this.counter--
     },
   }
@@ -26,5 +26,10 @@ export default {
   <button @click="decreaseCounter">-</button>
   
   <span>{{ counter }}</span>
-  <p v-if="counter < 0">{{ errorMessage }}</p>
+  <p v-if="counter === 0">{{ errorMessage }}</p>
+  <hr>
+  <h2>Display list</h2>
+  <ul>
+    <li v-for="(char, index) in characters" :key="index">{{ char }}</li>
+  </ul>
 </template>
