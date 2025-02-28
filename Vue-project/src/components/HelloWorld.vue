@@ -1,6 +1,11 @@
 
 <script>
+import CharactherList from './CharactherList.vue';
+
 export default {
+  components: {
+    CharactherList
+  },
   data(){
     return{
     counter:0,
@@ -19,17 +24,12 @@ export default {
   }
 }
 </script>
-
 <template>
   <h1>Hello from my frist Vue component</h1>
   <button @click="increaseCounter">+</button>
   <button @click="decreaseCounter">-</button>
-  
   <span>{{ counter }}</span>
   <p v-if="counter === 0">{{ errorMessage }}</p>
   <hr>
-  <h2>Display list</h2>
-  <ul>
-    <li v-for="(char, index) in characters" :key="index">{{ char }}</li>
-  </ul>
+ <CharactherList :characthers="characters"/>
 </template>

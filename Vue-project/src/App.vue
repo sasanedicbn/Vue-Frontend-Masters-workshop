@@ -1,12 +1,22 @@
-<script setup lang="ts">
+<script lang="ts">
 import HelloWorld from './components/HelloWorld.vue';
+
+export default {
+  components: {
+    HelloWorld
+  },
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+};
 </script>
+
 <template>
-  <div>
-    <HelloWorld/>
-  </div>
+  <HelloWorld/>
 </template>
 
 <style scoped>
-
+/* Stilovi */
 </style>
