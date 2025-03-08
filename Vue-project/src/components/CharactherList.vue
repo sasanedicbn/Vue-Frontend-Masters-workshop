@@ -4,7 +4,7 @@
   <ul>
     <li v-for="(char, index) of characthers" :key="index">{{ char }}</li>
   </ul>
-  <button @click="$emit("change-name")"></button>
+  <button @click="$emit("change-name")">OVDJE</button>
  </div>
 </template>
 

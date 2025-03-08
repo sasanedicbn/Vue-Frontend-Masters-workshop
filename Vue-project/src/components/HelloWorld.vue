@@ -10,7 +10,8 @@ export default {
     return{
     counter:0,
     errorMessage:'Ooops, you cant go in negative numbers',
-    characters: ['Jovan', 'Ilija', 'Radovan', 'Sasa']
+    characters: ['Jovan', 'Ilija', 'Radovan', 'Sasa'],
+    message: 'Sasa'
   }
   },
   methods:{
@@ -21,6 +22,9 @@ export default {
       if(this.counter === 0) return
         this.counter--
     },
+    changeName(){
+     this.message = 'Sasa Nedic'
+    }
   }
 }
 </script>
@@ -31,5 +35,6 @@ export default {
   <span>{{ counter }}</span>
   <p v-if="counter === 0">{{ errorMessage }}</p>
   <hr>
- <CharactherList :characthers="characters"/>
+  <p>With emit{{ message }}</p>
+ <CharactherList :characthers="characters" @change-name="changeName"/>
 </template>
