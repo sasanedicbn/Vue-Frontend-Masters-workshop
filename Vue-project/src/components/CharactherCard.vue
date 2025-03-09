@@ -15,7 +15,8 @@ export default {
             type:Array,
             required:true,
         }
-    }
+    },
+    emits:["pokemon-emits"],
 }
 </script>
 <!-- v-for="(char, index) of characthers" :key="index"> -->

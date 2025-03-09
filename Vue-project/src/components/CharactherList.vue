@@ -3,11 +3,13 @@
   <h2>Display Charachters</h2>
   <ul>
     <!-- <li v-for="(char, index) of characthers" :key="index">{{ char }}</li> -->
+     <li v-for="(fav, index) of favouritePokemons">-{{ fav }}</li>
+     <p v-if="favouritePokemons.length === 0">You dont have yet fav pokemon?</p>
   </ul>
   <!-- <button @click="$emit('change-name')">OVDJE</button>
   <button @click="$emit('change-message')"> Change message</button> -->
-  <p>ISPOD</p>
   <CharactherCard :pokemon="names"/>
+
  </div>
 </template>
 
@@ -18,7 +20,7 @@ export default{
     data() {
      return{
       names:['Re', 'Ale', 'Ole', 'Sanu', 'Oktagon'],
-      pokemons:[]
+      favouritePokemons:[]
       }
     },
     props:{
