@@ -10,7 +10,7 @@ export default {
     return{
     counter:0,
     errorMessage:'Ooops, you cant go in negative numbers',
-    characters: ['Jovan', 'Ilija', 'Radovan', 'Sasa'],
+    characthers: ['Jovan', 'Ilija', 'Radovan', 'Sasa'],
     message: 'Sasa'
   }
   },
@@ -35,6 +35,6 @@ export default {
   <span>{{ counter }}</span>
   <p v-if="counter === 0">{{ errorMessage }}</p>
   <hr>
-  <p>With emit{{ message }}</p>
- <CharactherList :characthers="characters" @change-name="changeName"/>
+  <p>With emit {{ message }}</p>
+ <CharactherList :characthers="characthers" @change-name="changeName"/>
 </template>
