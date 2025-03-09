@@ -8,7 +8,7 @@
   </ul>
   <!-- <button @click="$emit('change-name')">OVDJE</button>
   <button @click="$emit('change-message')"> Change message</button> -->
-  <CharactherCard :pokemon="names"/>
+  <CharactherCard :pokemon="names" @pokemon-emits="handlePokemonEmits"/>
 
  </div>
 </template>
@@ -30,6 +30,11 @@ export default{
         }
     },
     emits: ["change-name", "change-message", "pokemon-emits"],
+    methods:{
+      handlePokemonEmits(pokemon) {
+        this.favouritePokemons.push(pokemon)
+      }
+    },
     components: {
         CharactherCard
     }

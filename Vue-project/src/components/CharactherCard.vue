@@ -27,4 +27,3 @@ export default {
     }
 }
 </script>
-<!-- v-for="(char, index) of characthers" :key="index"> -->
