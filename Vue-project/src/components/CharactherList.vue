@@ -29,7 +29,7 @@ export default{
             required: true,
         }
     },
-    emits: ["change-name", "change-message"],
+    emits: ["change-name", "change-message", "pokemon-emits"],
     components: {
         CharactherCard
     }
