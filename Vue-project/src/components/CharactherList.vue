@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import BaseButton from './Base-button.vue';
 import CharactherCard from './CharactherCard.vue';
 
 export default{
@@ -32,11 +33,13 @@ export default{
     emits: ["change-name", "change-message", "pokemon-emits"],
     methods:{
       handlePokemonEmits(pokemon) {
+        console.log('Primljeni podaci iz child komponente:', pokemon);
         this.favouritePokemons.push(pokemon)
       }
     },
     components: {
-        CharactherCard
+        CharactherCard,
+        BaseButton
     }
 }
 </script>
