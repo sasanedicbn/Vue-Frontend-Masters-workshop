@@ -8,6 +8,7 @@
   </ul>
   <!-- <button @click="$emit('change-name')">OVDJE</button>
   <button @click="$emit('change-message')"> Change message</button> -->
+  <BaseButton></BaseButton>
   <CharactherCard :pokemon="names" @pokemon-emits="handlePokemonEmits"/>
 
  </div>
@@ -15,7 +16,7 @@
 
 <script>
 import BaseButton from './Base-button.vue';
-import CharactherCard from './CharactherCard.vue';
+// import CharactherCard from './CharactherCard.vue';
 
 export default{
     data() {
@@ -38,7 +39,7 @@ export default{
       }
     },
     components: {
-        CharactherCard,
+        // CharactherCard,
         BaseButton
     }
 }

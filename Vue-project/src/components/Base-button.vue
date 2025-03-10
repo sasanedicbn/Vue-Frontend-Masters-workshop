@@ -1,15 +1,14 @@
 <script>
 export default{
     props:{
-        icon: Boolean,
-        default: false,
+       text:String,
+       icon:String,
     }
 }
 </script>
 <template>
     <button>
-        <slot v-if="icon">Icon - Submit</slot>
-        <slot v-else>Submit</slot>
+        <slot>Submit</slot>
     </button>
 
 </template>
