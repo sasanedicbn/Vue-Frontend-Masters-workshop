@@ -8,10 +8,10 @@ export default{
         <header class="header">
             <slot name="header"/>
         </header>
-        <main name="main">
+        <main class="main">
             <slot name="main"/>
         </main>
-        <footer>
+        <footer class="footer">
             <slot name="footer"/>
         </footer>
     </div>

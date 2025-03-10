@@ -1,10 +1,12 @@
 
 <script>
+import BaseLayout from './Base-Layout.vue';
 import CharactherList from './CharactherList.vue';
 
 export default {
   components: {
-    CharactherList
+    CharactherList,
+    BaseLayout
   },
   data(){
     return{
@@ -24,9 +26,16 @@ export default {
 }
 </script>
 <template>
-  <h4>Hello from my frist Vue component</h4>
-  <button @click="increaseCounter">+</button>
-  <button @click="decreaseCounter">-</button>
-  <hr>
- <CharactherList :characthers="characthers" />
+<BaseLayout>
+  <template v-slot:header>
+    <h4>Hello from my frist Vue component</h4>
+  </template>
+  <template v-slot:main>
+    <button @click="increaseCounter">+</button>
+    <button @click="decreaseCounter">-</button>
+  </template>
+  <template v-slot:footer>
+    <CharactherList :characthers="characthers" />
+  </template>
+</BaseLayout>
 </template>
