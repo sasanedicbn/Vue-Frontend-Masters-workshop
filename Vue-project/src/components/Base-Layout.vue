@@ -19,6 +19,9 @@ export default{
 </template>
 
 <style>
+.wrapper{
+    width: 50vw;
+}
 .header{
     border: 2px solid blue;
 }
