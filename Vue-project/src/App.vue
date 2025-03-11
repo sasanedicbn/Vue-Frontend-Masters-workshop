@@ -17,10 +17,9 @@ export default {
     this.pokemon = data.results;
    },
   },
-  beforeCreate(){
-    console.log('------before create--------')
-    console.log(this.pokemon)
-  }
+  created(){
+    this.fetchPokemon()
+  },
 };
 </script>
 
@@ -30,7 +29,6 @@ export default {
   <ul>
     <li v-for="(fav, index) in pokemon" :key="index">-{{ fav }}</li>
   </ul>
-  <button @click="fetchPokemon">ADD BTN</button>
 </template>
 
 <style scoped>
