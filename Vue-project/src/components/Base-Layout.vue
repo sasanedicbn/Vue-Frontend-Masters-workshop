@@ -20,7 +20,7 @@ export default{
 
 <style>
 .wrapper{
-    width: 50vw;
+    width: 80vw;
 }
 .header{
     border: 2px solid blue;

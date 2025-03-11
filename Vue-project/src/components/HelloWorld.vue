@@ -2,11 +2,13 @@
 <script>
 import BaseLayout from './Base-Layout.vue';
 import CharactherList from './CharactherList.vue';
+import GridLayout from './Grid-Layout.vue';
 
 export default {
   components: {
     CharactherList,
-    BaseLayout
+    BaseLayout,
+    GridLayout
   },
   data(){
     return{
@@ -28,7 +30,11 @@ export default {
 <template>
 <BaseLayout>
   <template v-slot:header>
-    <h4>Hello from my frist Vue component</h4>
+    <GridLayout>
+      <template v-slot:one>
+        <h4>Hello from my frist Vue component</h4>
+      </template>
+    </GridLayout>
   </template>
   <template v-slot:main>
     <button @click="increaseCounter">+</button>
