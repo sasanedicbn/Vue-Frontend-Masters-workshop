@@ -1,9 +1,11 @@
 <script >
 import HomePage from './components/HomePage.vue';
+import LoginPage from './components/LoginPage.vue';
 
 export default{
   components:{
     HomePage,
+    LoginPage
   }
 }
 </script>
@@ -19,6 +21,7 @@ export default{
 </header>
 <div class="content-wrapper">
   <HomePage/>
+  <LoginPage/>
 </div>
 </template>
 <style >
