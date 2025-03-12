@@ -3,9 +3,19 @@ import HomePage from './components/HomePage.vue';
 import LoginPage from './components/LoginPage.vue';
 
 export default{
+  data:() =>{
+    return{
+      currentPage: 'HomePage'
+    }
+  },
   components:{
     HomePage,
     LoginPage
+  },
+  methods:{
+    changePage(page){
+     this.currentPage = page;
+    }
   }
 }
 </script>
@@ -14,20 +24,18 @@ export default{
 <header>
   <p class="logo">VUE</p>
   <nav>
-    <a href="HomePage" >Home</a>
-    <a href="LoginPage" >Log in</a>
+    <a href="HomePage" @click.prevent="changePage('HomePage')">Home</a>
+    <a href="LoginPage"@click.prevent="changePage('LoginPage')" >Log in</a>
     <a href="UsersPage" >Users</a>
   </nav>
 </header>
 <div class="content-wrapper">
-  <HomePage/>
-  <LoginPage/>
+  <component :is="currentPage"/>
 </div>
 </template>
 <style >
 body{
   margin: 0;
-
 }
 header{
   background-color: rgb(240, 236, 236);
