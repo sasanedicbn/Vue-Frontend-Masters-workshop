@@ -1,6 +1,11 @@
 <script>
+import BaseButton from '@/Base/Base-button.vue';
+
 export default{
-    name: 'HomePage'
+    name: 'HomePage',
+    components:{
+        BaseButton
+    }
 }
 </script>
 
@@ -9,6 +14,7 @@ export default{
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 Impedit magni veniam nam ut quidem earum ad distinctio, necessitatibus quis labore dolores 
 facilis odio inventore, rem consectetur temporibus unde sunt assumenda.</p>
+<BaseButton text="SUBMIT" type="warning"/>
 </template>
 
 <style>
