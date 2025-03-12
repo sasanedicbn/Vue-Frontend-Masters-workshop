@@ -32,7 +32,6 @@ export default {
 </template>
 
 <style scoped>
-/* Stilovi */
 </style>
 <!-- https://pokeapi.co/api/v2/pokemon?limit=151 -->
 
