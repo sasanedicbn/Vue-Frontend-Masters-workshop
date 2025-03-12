@@ -1,6 +1,7 @@
 <script >
 import HomePage from './components/HomePage.vue';
 import LoginPage from './components/LoginPage.vue';
+import UsersPage from './components/UsersPage.vue';
 
 export default{
   data:() =>{
@@ -10,7 +11,8 @@ export default{
   },
   components:{
     HomePage,
-    LoginPage
+    LoginPage,
+    UsersPage
   },
   methods:{
     changePage(page){
@@ -25,8 +27,8 @@ export default{
   <p class="logo">VUE</p>
   <nav>
     <a href="HomePage" @click.prevent="changePage('HomePage')">Home</a>
-    <a href="LoginPage"@click.prevent="changePage('LoginPage')" >Log in</a>
-    <a href="UsersPage" >Users</a>
+    <a href="LoginPage" @click.prevent="changePage('LoginPage')" >Log in</a>
+    <a href="UsersPage" @click.prevent="changePage('UsersPage')" >Users</a>
   </nav>
 </header>
 <div class="content-wrapper">
