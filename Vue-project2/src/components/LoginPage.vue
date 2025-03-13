@@ -6,22 +6,22 @@
         type="text"
         id="email"
         class="input-field"
-        v-model="email"
+        v-model="form.email"
         @input="validationInputs($event, 'email')"
         placeholder="Unesite svoj email"
       />
-      <p v-if="emailError" class="error-message">{{ emailError }}</p>
+      <p v-if="error.emailError" class="error-message">{{ error.emailError }}</p>
 
       <label for="password">Password</label>
       <input
         type="password"
         id="password"
         class="input-field"
-        v-model="password"
+        v-model="form.password"
         @input="validationInputs($event, 'password')"
         placeholder="Unesite svoju lozinku"
       />
-      <p v-if="passwordError" class="error-message">{{ passwordError }}</p>
+      <p v-if="error.passwordError" class="error-message">{{ error.passwordError }}</p>
 
       <BaseButton type="success" text="Log in" />
     </form>
@@ -38,10 +38,14 @@ export default {
   },
   data() {
     return {
+      form:{
       email: '',
       password: '',
+    },
+    error:{
       emailError: '',
       passwordError: '',
+    }
     };
   },
   methods: {
@@ -49,22 +53,22 @@ export default {
       const value = event.target.value;
 
       if (field === 'email') {
-        if (value.length === 3) {
-          this.emailError = 'Email polje ne može biti prazno.';
+        if (value.length === 0) {
+          this.error.emailError = 'Email polje ne može biti prazno.';
         } else if (!this.validateEmail(value)) {
-          this.emailError = 'Unesite ispravan email.';
+          this.error.emailError = 'Unesite ispravan email.';
         } else {
-          this.emailError = '';
+          this.error.emailError = '';
         }
       }
 
       if (field === 'password') {
         if (value.length === 0) {
-          this.passwordError = 'Lozinka ne može biti prazna.';
+          this.error.passwordError = 'Lozinka ne može biti prazna.';
         } else if (value.length < 6) {
-          this.passwordError = 'Lozinka mora imati najmanje 6 karaktera.';
+          this.error.passwordError = 'Lozinka mora imati najmanje 6 karaktera.';
         } else {
-          this.passwordError = '';
+          this.error.passwordError = '';
         }
       }
     },
@@ -73,13 +77,12 @@ export default {
       return regex.test(email);
     },
     handleSubmit() {
-      this.validationInputs({ target: { value: this.email } }, 'email');
-      this.validationInputs({ target: { value: this.password } }, 'password');
+      this.validationInputs({ target: { value: this.form.email } }, 'email');
+      this.validationInputs({ target: { value: this.form.password } }, 'password');
 
-      if (!this.emailError && !this.passwordError) {
+      if (!this.error.emailError && !this.error.passwordError) {
         console.log('Forma je uspješno validirana.');
-        console.log('Email:', this.email);
-        console.log('Password:', this.password);
+  
       } else {
         console.log('Forma nije validna. Popravite greške.');
       }
