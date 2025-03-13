@@ -1,5 +1,22 @@
+<template>
+  <div>
+    <h2>List of users</h2>
+    <ul>
+      <li v-for="user in usersList" :key="user.id">
+        <UserCard :user="user"/>
+      </li>
+    </ul>
+   
+  </div>
+</template>
+
 <script>
+import UserCard from './UserCard.vue';
+
 export default {
+  components: {
+    UserCard
+  },
   name: 'UsersPage',
   data() {
     return {
@@ -25,14 +42,7 @@ export default {
 };
 </script>
 
-<template>
-  <div>
-    <h2>List of users</h2>
-    <ul>
-      <li v-for="user in usersList" :key="user.id">{{ user.name }} (ID: {{ user.id }})</li>
-    </ul>
-  </div>
-</template>
+
 
 <style scoped>
 ul {
@@ -43,7 +53,6 @@ ul {
 li {
   background-color: #f4f4f4;
   margin: 5px 0;
-  padding: 10px;
   border-radius: 5px;
 }
 </style>
