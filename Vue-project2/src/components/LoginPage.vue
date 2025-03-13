@@ -2,10 +2,10 @@
     <div class="login-container">
       <form class="login-form" action="#">
         <label for="email">Email</label>
-        <input type="text" id="email" class="input-field" placeholder="Unesite svoj email" />
+        <input type="text" id="email" class="input-field" v-on:input="validationInputs($event, 'email')" placeholder="Unesite svoj email" />
   
         <label for="password">Password</label>
-        <input type="password" id="password" class="input-field" placeholder="Unesite svoju lozinku" />
+        <input type="password" id="password" class="input-field" v-on:input="validationInputs($event, 'password')" placeholder="Unesite svoju lozinku" />
   
         <BaseButton type="success" text="Log in" />
       </form>
@@ -14,12 +14,25 @@
   
   <script>
   import BaseButton from '@/Base/Base-button.vue';
-  
+
   export default {
+    data: () => {
+     errorMessage = ''
+    },
     name: 'LoginPage',
     components: {
       BaseButton,
     },
+    methods: {
+      validationInputs(event, field){
+        const value = event.target.value;
+        if(value.length === 0){
+          console.log('input polje ne moze biti prazno')
+        } else{
+          console.log(`vrijednost ${field}`, value)
+        }
+      }
+    }
   };
   </script>
   
