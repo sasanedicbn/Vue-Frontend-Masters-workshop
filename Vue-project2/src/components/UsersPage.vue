@@ -3,46 +3,45 @@
     <h2>List of users</h2>
     <ul>
       <li v-for="user in usersList" :key="user.id">
-        <UserCard :user="user"/>
+        <UserCard :user="user" />
       </li>
     </ul>
-   
   </div>
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
 import UserCard from './UserCard.vue';
 
 export default {
   components: {
-    UserCard
+    UserCard,
   },
-  name: 'UsersPage',
-  data() {
-    return {
-      usersList: [],
-    };
-  },
-  methods: {
-    async fetchUserList() {
+  setup() {
+    const usersList = ref([]);
+
+    const fetchUserList = async () => {
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        this.usersList = await response.json();
+        usersList.value = await response.json(); 
       } catch (error) {
         console.error('Greška pri dohvatu korisnika:', error);
       }
-    },
-  },
-  created() {
-    this.fetchUserList();
+    };
+
+    onMounted(() => {
+      fetchUserList();
+    });
+
+    return {
+      usersList,
+    };
   },
 };
 </script>
-
-
 
 <style scoped>
 ul {

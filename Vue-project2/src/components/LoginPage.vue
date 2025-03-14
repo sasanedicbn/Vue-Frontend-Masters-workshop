@@ -6,7 +6,12 @@
         type="text"
         id="email"
         class="input-field"
-        v-model=
+        v-model="form.email"
+        @input="validationInputs($event, 'email')"
+        placeholder="Unesite svoj email"
+      />
+      <p v-if="error.emailError" class="error-message">{{ error.emailError }}</p>
+
       <label for="password">Password</label>
       <input
         type="password"
