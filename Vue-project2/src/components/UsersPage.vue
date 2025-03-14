@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import UserCard from './UserCard.vue';
 
 export default {
@@ -19,6 +19,7 @@ export default {
   },
   async setup() {
     const usersList = ref([]);
+    console.log(usersList)
 
     const fetchUserList = async () => {
       try {
@@ -26,14 +27,14 @@ export default {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        usersList.value = await response.json(); 
+        return response.json()
       } catch (error) {
         console.error('Greška pri dohvatu korisnika:', error);
       }
     };
    
-    usersList = await fetchUserList()
-
+    usersList.value = await fetchUserList()
+  
     return {
       usersList,
     };

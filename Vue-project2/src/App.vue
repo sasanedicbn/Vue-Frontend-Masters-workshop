@@ -1,4 +1,5 @@
 <script >
+import { Suspense } from 'vue';
 import HomePage from './components/HomePage.vue';
 import LoginPage from './components/LoginPage.vue';
 import UsersPage from './components/UsersPage.vue';
@@ -32,7 +33,12 @@ export default{
   </nav>
 </header>
 <div class="content-wrapper">
-  <<component :is="currentPage"/>>
+  <Suspense>
+   <component :is="currentPage"/>
+   <template #fallback>
+    <div class="spinner">Loading...</div>
+  </template>
+  </Suspense>
 </div>
 </template>
 <style >
