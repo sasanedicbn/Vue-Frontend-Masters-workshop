@@ -9,15 +9,11 @@
   </div>
 </template>
 
-<script>
-import { onMounted, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import UserCard from './UserCard.vue';
 
-export default {
-  components: {
-    UserCard,
-  },
-  async setup() {
+ 
     const usersList = ref([]);
     console.log(usersList)
 
@@ -35,11 +31,7 @@ export default {
    
     usersList.value = await fetchUserList()
   
-    return {
-      usersList,
-    };
-  },
-};
+
 </script>
 
 <style scoped>
