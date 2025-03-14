@@ -12,7 +12,7 @@ export default{
   components:{
     HomePage,
     LoginPage,
-    UsersPage
+    UsersPage,
   },
   methods:{
     changePage(page){
@@ -32,7 +32,7 @@ export default{
   </nav>
 </header>
 <div class="content-wrapper">
-  <component :is="currentPage"/>
+  <<component :is="currentPage"/>>
 </div>
 </template>
 <style >

@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import UserCard from './UserCard.vue';
 
 export default {
   components: {
     UserCard,
   },
-  setup() {
+  async setup() {
     const usersList = ref([]);
 
     const fetchUserList = async () => {
@@ -31,10 +31,8 @@ export default {
         console.error('Greška pri dohvatu korisnika:', error);
       }
     };
-
-    onMounted(() => {
-      fetchUserList();
-    });
+   
+    usersList = await fetchUserList()
 
     return {
       usersList,
