@@ -2,16 +2,14 @@
   <p>{{ user.name }}: {{ user.id }}</p>
 </template>
 
-<script>
-export default{
-    name:'UserCard',
-    props:{
-       user: {
+<script setup>
+const props = defineProps({
+    user: {
         type: Object,
         required: true,
-       }
     }
-}
+})    
+    
 </script>
 
 <style>
