@@ -1,12 +1,6 @@
-<script>
+<script setup>
 import BaseButton from '@/Base/Base-button.vue';
 
-export default{
-    name: 'HomePage',
-    components:{
-        BaseButton
-    }
-}
 </script>
 
 <template>
