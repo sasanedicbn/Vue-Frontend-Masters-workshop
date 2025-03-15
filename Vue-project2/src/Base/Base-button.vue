@@ -1,31 +1,30 @@
 <template>
- <button :class="buttonClass">
+  <button :class="buttonClass">
     {{ text }}
- </button>
+  </button>
 </template>
 
-<script>
-export default {
-  name: 'BaseButton',
-  props:{
-    text:{
-        type:String,
-        required:true,
-    },
-    type:{
-        type:String,
-        default: 'default',
-        validatior: (value) =>{
-            return ['defaut', 'success', 'warning'].includes(value)
-        }
-    }
+<script setup>
+import { computed } from 'vue'; 
+
+const props = defineProps({
+  text: {
+    type: String,
+    required: true,
   },
-  computed: {
-   buttonClass() {
-    return `btn btn-${this.type}`
-   }
-  }
-};
+  type: {
+    type: String,
+    default: 'default',
+    validator: (value) => {
+      return ['default', 'success', 'warning'].includes(value);
+    },
+  },
+});
+
+// Computed svojstvo za dinamičke klase
+const buttonClass = computed(() => {
+  return `btn btn-${props.type}`;
+});
 </script>
 
 <style>
@@ -36,6 +35,12 @@ export default {
   cursor: pointer;
   font-size: 16px;
 }
+
+.btn-default {
+  background-color: #ccc;
+  color: #000;
+}
+
 .btn-success {
   background-color: #42b983;
   color: #fff;
