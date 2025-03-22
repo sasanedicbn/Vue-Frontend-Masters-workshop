@@ -3,8 +3,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
-    user: {
+const props 
         type: Object,
         required: true,
     }
