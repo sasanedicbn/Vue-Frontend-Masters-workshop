@@ -3,7 +3,8 @@
 </template>
 
 <script setup>
-const props 
+const props = defineProps({
+    user: {
         type: Object,
         required: true,
     }
@@ -14,3 +15,4 @@ const props
 <style>
 
 </style>
+<!-- next => learn about composables -->
