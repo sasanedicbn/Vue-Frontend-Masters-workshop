@@ -47,6 +47,10 @@ import {usersData} from '../composables/usersStore'
 </script>
 
 <style scoped>
+button{
+  border: 5px solid red;
+  margin: 10px;
+}
 ul {
   list-style-type: none;
   padding: 0;

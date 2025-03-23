@@ -45,6 +45,9 @@ export default{
 body{
   margin: 0;
 }
+button{
+  border: 5px solid green !important;
+}
 header{
   background-color: rgb(240, 236, 236);
   height: 52.5px;
@@ -81,4 +84,5 @@ a{
     flex-direction: column;
     
   }
+
 </style>

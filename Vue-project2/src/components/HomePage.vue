@@ -13,7 +13,7 @@ facilis odio inventore, rem consectetur temporibus unde sunt assumenda.</p>
 <ul>
     <li v-for="user in usersData" :key="user.id">
         <UserCard :user="user" />
-      </li>
+     </li>
 </ul>
 </template>
 
