@@ -10,11 +10,9 @@
       <p>{{ increment1 }} Increment1</p>
     </div>
     <div>
-      <!-- <BaseButton type="success" text="Increment" @click/> -->
        <button v-on:click="incrementCounter1">Increment 1</button>
     </div>
     <div>
-      <!-- <BaseButton type="warning" text="Increment"/> -->
       <button v-on:click="incrementCounter2">Increment 2</button>
       <p>{{ increment2 }} Increment2</p>
     </div>
@@ -24,9 +22,6 @@
 <script setup>
 import { ref } from 'vue';
 import UserCard from './UserCard.vue';
-import BaseButton from '@/Base/Base-button.vue';
-// import {innerValue} from '../composables/countStore'
-// import {incrementCounter} from "../composables/countStore"
 import controlData from '../composables/countStore';
 
     const {innerValue:increment1 ,incrementCounter: incrementCounter1 } = controlData()
