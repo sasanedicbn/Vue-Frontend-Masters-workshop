@@ -15,4 +15,3 @@ const props = defineProps({
 <style>
 
 </style>
-<!-- next => learn about composables -->

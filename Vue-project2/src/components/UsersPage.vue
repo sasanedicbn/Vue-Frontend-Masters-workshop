@@ -6,12 +6,27 @@
         <UserCard :user="user" />
       </li>
     </ul>
+    <div>
+      <p>{{ countValue }}</p>
+    </div>
+    <div>
+      <!-- <BaseButton type="success" text="Increment" @click/> -->
+       <button v-on:click="incrementCounter">Increment</button>
+    </div>
+    <div>
+      <!-- <BaseButton type="warning" text="Increment"/> -->
+      <button v-on:click="incrementCounter">Increment 2</button>
+
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import UserCard from './UserCard.vue';
+import BaseButton from '@/Base/Base-button.vue';
+import countValue from '../composables/countStore'
+import {incrementCounter} from "../composables/countStore"
 
  
     const usersList = ref([]);
