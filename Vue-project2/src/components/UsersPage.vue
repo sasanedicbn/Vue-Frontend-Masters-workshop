@@ -7,16 +7,16 @@
       </li>
     </ul>
     <div>
-      <p>{{ countValue }}</p>
+      <p>{{ increment1 }} Increment1</p>
     </div>
     <div>
       <!-- <BaseButton type="success" text="Increment" @click/> -->
-       <button v-on:click="incrementCounter">Increment</button>
+       <button v-on:click="incrementCounter1">Increment 1</button>
     </div>
     <div>
       <!-- <BaseButton type="warning" text="Increment"/> -->
-      <button v-on:click="incrementCounter">Increment 2</button>
-
+      <button v-on:click="incrementCounter2">Increment 2</button>
+      <p>{{ increment2 }} Increment2</p>
     </div>
   </div>
 </template>
@@ -25,9 +25,12 @@
 import { ref } from 'vue';
 import UserCard from './UserCard.vue';
 import BaseButton from '@/Base/Base-button.vue';
-import countValue from '../composables/countStore'
-import {incrementCounter} from "../composables/countStore"
+// import {innerValue} from '../composables/countStore'
+// import {incrementCounter} from "../composables/countStore"
+import controlData from '../composables/countStore';
 
+    const {innerValue:increment1 ,incrementCounter: incrementCounter1 } = controlData()
+    const {innerValue:increment2 ,incrementCounter: incrementCounter2  } = controlData()
  
     const usersList = ref([]);
     console.log(usersList)
