@@ -2,7 +2,7 @@
   <div>
     <h2>List of users</h2>
     <ul>
-      <li v-for="user in usersList" :key="user.id">
+      <li v-for="user in usersData" :key="user.id">
         <UserCard :user="user" />
       </li>
     </ul>
@@ -23,12 +23,11 @@
 import { ref } from 'vue';
 import UserCard from './UserCard.vue';
 import controlData from '../composables/countStore';
+import {usersData} from '../composables/usersStore'
 
     const {innerValue:increment1 ,incrementCounter: incrementCounter1 } = controlData()
     const {innerValue:increment2 ,incrementCounter: incrementCounter2  } = controlData()
  
-    const usersList = ref([]);
-    console.log(usersList)
 
     const fetchUserList = async () => {
       try {
@@ -42,7 +41,7 @@ import controlData from '../composables/countStore';
       }
     };
    
-    usersList.value = await fetchUserList()
+    usersData.value = await fetchUserList()
   
 
 </script>
