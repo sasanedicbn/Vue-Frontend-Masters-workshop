@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$style.users-wrapper">
     <h2>List of users</h2>
     <ul>
       <li v-for="user in usersData" :key="user.id">
@@ -47,6 +47,9 @@ import {usersData} from '../composables/usersStore'
 </script>
 
 <style module>
+.users-wrapper{
+  background-color: orange;
+}
 .button{
   border: 5px solid red;
   margin: 10px;

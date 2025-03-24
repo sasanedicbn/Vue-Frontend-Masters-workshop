@@ -1,10 +1,12 @@
 <script setup>
 import BaseButton from '@/Base/Base-button.vue';
 import {usersData} from '../composables/usersStore'
-import UserCard from './UserCard.vue';
+import UserCard from '../components/UserCard.vue';
+import { ref } from 'vue';
 </script>
 
-<template>
+<template >
+<div :class="$style.wrapper">
 <h2>Welcome to Home Page</h2>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 Impedit magni veniam nam ut quidem earum ad distinctio, necessitatibus quis labore dolores 
@@ -15,9 +17,11 @@ facilis odio inventore, rem consectetur temporibus unde sunt assumenda.</p>
         <UserCard :user="user" />
      </li>
 </ul>
+</div>
+
 </template>
 
-<style>
+<style module>
 h2{
     color: rgb(97, 95, 95);
 }

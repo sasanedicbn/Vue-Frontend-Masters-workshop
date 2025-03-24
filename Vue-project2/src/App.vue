@@ -1,36 +1,25 @@
-<script >
+<script setup>
 import { Suspense } from 'vue';
-import HomePage from './components/HomePage.vue';
-import LoginPage from './components/LoginPage.vue';
+import HomePage from './views/HomePage.vue';
+import LoginPage from './views/LoginPage.vue';
 import UsersPage from './components/UsersPage.vue';
 
-export default{
-  data:() =>{
-    return{
-      currentPage: 'HomePage'
+  const currentPage = ref('HomePage')  
+
+  const changePage = (page) => {
+     currentPage.value = page;
     }
-  },
-  components:{
-    HomePage,
-    LoginPage,
-    UsersPage,
-  },
-  methods:{
-    changePage(page){
-     this.currentPage = page;
-    }
-  }
-}
 </script>
 
 <template>
 <header>
   <p class="logo">VUE</p>
   <nav>
-    <a href="HomePage" @click.prevent="changePage('HomePage')">Home</a>
-    <a href="LoginPage" @click.prevent="changePage('LoginPage')" >Log in</a>
-    <a href="UsersPage" @click.prevent="changePage('UsersPage')" >Users</a>
+    <router-link href="HomePage" @click.prevent="changePage('HomePage')">Home</router-link>
+    <router-link href="LoginPage" @click.prevent="changePage('LoginPage')" >Log in</router-link>
+    <!-- <a href="UsersPage" @click.prevent="changePage('UsersPage')" >Users</a> -->
   </nav>
+  <router-view/>
 </header>
 <div class="content-wrapper">
   <Suspense>
