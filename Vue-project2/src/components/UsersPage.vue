@@ -10,10 +10,10 @@
       <p>{{ increment1 }} Increment1</p>
     </div>
     <div>
-       <button v-on:click="incrementCounter1">Increment 1</button>
+       <button :class="$style.button" v-on:click="incrementCounter1">Increment 1</button>
     </div>
     <div>
-      <button v-on:click="incrementCounter2">Increment 2</button>
+      <button :class="$style.button" v-on:click="incrementCounter2">Increment 2</button>
       <p>{{ increment2 }} Increment2</p>
     </div>
   </div>
@@ -46,8 +46,8 @@ import {usersData} from '../composables/usersStore'
 
 </script>
 
-<style scoped>
-button{
+<style module>
+.button{
   border: 5px solid red;
   margin: 10px;
 }

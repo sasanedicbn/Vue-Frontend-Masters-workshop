@@ -45,7 +45,7 @@ export default{
 body{
   margin: 0;
 }
-button{
+.button{
   border: 5px solid green !important;
 }
 header{
