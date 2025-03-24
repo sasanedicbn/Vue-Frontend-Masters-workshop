@@ -1,13 +1,13 @@
 import HomePageVue from "./views/HomePage.vue";
 import LoginPageVue from "./views/LoginPage.vue";
 
-export const routers = [
+export const routes = [
   {
     path: "/",
-    components: HomePageVue,
+    component: HomePageVue,
   },
   {
     path: "/login",
-    components: LoginPageVue,
+    component: LoginPageVue,
   },
 ];
