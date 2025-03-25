@@ -1,27 +1,24 @@
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import BaseLayout from './Base-Layout.vue';
 import CharactherList from './CharactherList.vue';
 import GridLayout from './Grid-Layout.vue';
 
-export default {
-  components: {
-  data(){
-    return{
-    errorMessage:'Ooops, you cant go in negative numbers',
-    characthers: ['Jovan', 'Ilija', 'Radovan', 'Sasa'],
-  }
-  },
-  methods:{
-    increaseCounter(){
-      this.counter++
-    },
-    decreaseCounter(){
-      if(this.counter === 0) return
-        this.counter--
-    },
-  }
-}
+    const errorMessage = ref('Ooops, you cant go in negative numbers')
+    const characthers = ref(['Jovan', 'Ilija', 'Radovan', 'Sasa'])
+    const counter = ref(0)
+  
+   const increaseCounter = () => {
+      counter.value++
+    }
+
+   const decreaseCounter = () => {
+      if(counter.value === 0) return
+        counter.value--
+    }
+  
+
 </script>
 <template>
 <BaseLayout>
