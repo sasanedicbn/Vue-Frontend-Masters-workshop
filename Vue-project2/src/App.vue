@@ -18,7 +18,6 @@
     <div class="spinner">Loading...</div>
   </template>
   </Suspense>
-  <p>SASAAS</p>
 </div>
 </template>
 <style >

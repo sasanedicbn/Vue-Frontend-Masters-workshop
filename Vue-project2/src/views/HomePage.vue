@@ -2,7 +2,6 @@
 import BaseButton from '@/Base/Base-button.vue';
 import {usersData} from '../composables/usersStore'
 import UserCard from '../components/UserCard.vue';
-import { ref } from 'vue';
 </script>
 
 <template >
