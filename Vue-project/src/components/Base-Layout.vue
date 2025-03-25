@@ -19,7 +19,7 @@ export default{
 </template>
 
 <style>
-.wrapper{
+/* .wrapper{
     width: 80vw;
 }
 .header{
@@ -30,5 +30,5 @@ export default{
 }
 .footer{
     border: 2px solid black;
-}
+} */
 </style>

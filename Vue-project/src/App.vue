@@ -1,10 +1,10 @@
 <script lang="ts">
-// import HelloWorld from './components/HelloWorld.vue';
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
-  // components: {
-  //   HelloWorld
-  // },
+  components: {
+    HelloWorld
+  },
   data() {
     return {
       pokemon: [1, 2, 3]
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <!-- <HelloWorld/> -->
+  <HelloWorld/>
   <h2>New App</h2>
   <ul>
     <li v-for="(fav, index) in pokemon" :key="index">-{{ fav }}</li>
