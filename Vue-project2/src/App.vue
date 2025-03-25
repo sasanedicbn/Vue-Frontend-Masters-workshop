@@ -1,15 +1,5 @@
 <script setup>
-import { Suspense } from 'vue';
-import HomePage from './views/HomePage.vue';
-import LoginPage from './views/LoginPage.vue';
-import UsersPage from './components/UsersPage.vue';
-import { ref } from 'vue';
 
-  const currentPage = ref('HomePage')  
-
-  const changePage = (page) => {
-     currentPage.value = page;
-    }
 </script>
 
 <template>
@@ -19,17 +9,16 @@ import { ref } from 'vue';
     <router-link to="/" >Home</router-link>
     <router-link to="/login" >Log in</router-link>
     <router-link to="/users">Users</router-link>
-    <!-- <a href="UsersPage" @click.prevent="changePage('UsersPage')" >Users</a> -->
   </nav>
 </header>
 <div class="content-wrapper">
-  <!-- <Suspense>
-   <component :is="currentPage"/>
+  <Suspense>
+    <router-view/>
    <template #fallback>
     <div class="spinner">Loading...</div>
   </template>
-  </Suspense> -->
-  <router-view/>
+  </Suspense>
+  <p>SASAAS</p>
 </div>
 </template>
 <style >

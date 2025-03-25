@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.users-wrapper">
+  <div :class="$styleusers-wrapper">
     <h2>List of users</h2>
     <ul>
       <li v-for="user in usersData" :key="user.id">
@@ -20,10 +20,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import UserCard from './UserCard.vue';
-import controlData from '../composables/countStore';
-import {usersData} from '../composables/usersStore'
+import controlData from '@/composables/countStore';
+import {usersData} from '@/composables/usersStore'
+import UserCard from '@/components/UserCard.vue';
 
     const {innerValue:increment1 ,incrementCounter: incrementCounter1 } = controlData()
     const {innerValue:increment2 ,incrementCounter: incrementCounter2  } = controlData()
