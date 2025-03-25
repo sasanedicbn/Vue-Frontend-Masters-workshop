@@ -6,10 +6,6 @@ import GridLayout from './Grid-Layout.vue';
 
 export default {
   components: {
-    CharactherList,
-    BaseLayout,
-    GridLayout
-  },
   data(){
     return{
     errorMessage:'Ooops, you cant go in negative numbers',
