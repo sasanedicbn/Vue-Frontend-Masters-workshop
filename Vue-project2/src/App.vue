@@ -18,6 +18,7 @@ import { ref } from 'vue';
   <nav>
     <router-link to="/" >Home</router-link>
     <router-link to="/login" >Log in</router-link>
+    <router-link to="/users">Users</router-link>
     <!-- <a href="UsersPage" @click.prevent="changePage('UsersPage')" >Users</a> -->
   </nav>
 </header>
