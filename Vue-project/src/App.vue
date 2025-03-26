@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from "vue-router";
 import { ref, onMounted } from "vue";
 import HelloWorld from "./views/HelloWorld.vue";
 import Pokedex from "./views/Pokedex.vue";
@@ -20,9 +21,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <HelloWorld />
-  <h2>New App</h2>
-  <Pokedex :pokemon="pokemon" />
+  <nav>
+    <ul>
+      <li><RouterLink to="/">Go to Home</RouterLink></li>
+      <li><RouterLink to="/pokedex">Go to Pokedex</RouterLink></li>
+    </ul>
+  </nav>
+
+  <RouterView :pokemon="pokemon" />
 </template>
 
 <style scoped></style>
