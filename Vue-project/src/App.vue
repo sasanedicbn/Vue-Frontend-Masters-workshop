@@ -1,43 +1,29 @@
-<script lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+<script setup>
+import { ref, onMounted } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import Pokedex from "./Pokedex.vue";
 
-export default {
-  components: {
-    HelloWorld
-  },
-  data() {
-    return {
-      pokemon: [1, 2, 3]
-    };
-  },
-  methods:{
-    async fetchPokemon() {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+const pokemon = ref([1, 2, 3]);
+
+const fetchPokemon = async () => {
+  try {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
     const data = await response.json();
-    this.pokemon = data.results;
-   },
-  },
-  created(){
-    this.fetchPokemon()
-  },
+    pokemon.value = data.results;
+  } catch (error) {
+    console.error("Greška pri dohvaćanju Pokémona:", error);
+  }
 };
+onMounted(() => {
+  fetchPokemon();
+});
 </script>
 
 <template>
-  <HelloWorld/>
+  <HelloWorld />
   <h2>New App</h2>
-  <ul>
-    <li v-for="(fav, index) in pokemon" :key="index">-{{ fav }}</li>
-  </ul>
+  <Pokedex :pokemon="pokemon" />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
 <!-- https://pokeapi.co/api/v2/pokemon?limit=151 -->
-
-
-
-
-
-
-
