@@ -10,7 +10,9 @@
         @input="validationInputs($event, 'email')"
         placeholder="Unesite svoj email"
       />
-      <p v-if="error.emailError" class="error-message">{{ error.emailError }}</p>
+      <p v-if="error.emailError" class="error-message">
+        {{ error.emailError }}
+      </p>
 
       <label for="password">Password</label>
       <input
@@ -21,7 +23,9 @@
         @input="validationInputs($event, 'password')"
         placeholder="Unesite svoju lozinku"
       />
-      <p v-if="error.passwordError" class="error-message">{{ error.passwordError }}</p>
+      <p v-if="error.passwordError" class="error-message">
+        {{ error.passwordError }}
+      </p>
 
       <BaseButton type="success" text="Log in" />
     </form>
@@ -29,46 +33,47 @@
 </template>
 
 <script>
-import BaseButton from '@/Base/Base-button.vue';
-
+import BaseButton from "@/Base/Base-button.vue";
+import useRouter from "vue-router";
+const router = useRouter();
 export default {
-  name: 'LoginPage',
+  name: "LoginPage",
   components: {
     BaseButton,
   },
   data() {
     return {
-      form:{
-      email: '',
-      password: '',
-    },
-    error:{
-      emailError: '',
-      passwordError: '',
-    }
+      form: {
+        email: "",
+        password: "",
+      },
+      error: {
+        emailError: "",
+        passwordError: "",
+      },
     };
   },
   methods: {
     validationInputs(event, field) {
       const value = event.target.value;
 
-      if (field === 'email') {
+      if (field === "email") {
         if (value.length === 0) {
-          this.error.emailError = 'Email polje ne može biti prazno.';
+          this.error.emailError = "Email polje ne može biti prazno.";
         } else if (!this.validateEmail(value)) {
-          this.error.emailError = 'Unesite ispravan email.';
+          this.error.emailError = "Unesite ispravan email.";
         } else {
-          this.error.emailError = '';
+          this.error.emailError = "";
         }
       }
 
-      if (field === 'password') {
+      if (field === "password") {
         if (value.length === 0) {
-          this.error.passwordError = 'Lozinka ne može biti prazna.';
+          this.error.passwordError = "Lozinka ne može biti prazna.";
         } else if (value.length < 6) {
-          this.error.passwordError = 'Lozinka mora imati najmanje 6 karaktera.';
+          this.error.passwordError = "Lozinka mora imati najmanje 6 karaktera.";
         } else {
-          this.error.passwordError = '';
+          this.error.passwordError = "";
         }
       }
     },
@@ -77,14 +82,16 @@ export default {
       return regex.test(email);
     },
     handleSubmit() {
-      this.validationInputs({ target: { value: this.form.email } }, 'email');
-      this.validationInputs({ target: { value: this.form.password } }, 'password');
+      this.validationInputs({ target: { value: this.form.email } }, "email");
+      this.validationInputs(
+        { target: { value: this.form.password } },
+        "password"
+      );
 
       if (!this.error.emailError && !this.error.passwordError) {
-        console.log('Forma je uspješno validirana.');
-  
+        router.push("/users");
       } else {
-        console.log('Forma nije validna. Popravite greške.');
+        console.log("Forma nije validna. Popravite greške.");
       }
     },
   },
@@ -92,7 +99,8 @@ export default {
 </script>
 
 <style>
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
