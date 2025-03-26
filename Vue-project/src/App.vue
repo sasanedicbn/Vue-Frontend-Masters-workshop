@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-import Pokedex from "./Pokedex.vue";
+import HelloWorld from "./views/HelloWorld.vue";
+import Pokedex from "./views/Pokedex.vue";
 
 const pokemon = ref([1, 2, 3]);
 
