@@ -1,17 +1,16 @@
 <template>
-  <p>{{ user.name }}: {{ user.id }}</p>
+  <router-link :to="`/users/${user.name}`">
+    <p>{{ user.name }}: {{ user.id }}</p>
+  </router-link>
 </template>
 
 <script setup>
 const props = defineProps({
-    user: {
-        type: Object,
-        required: true,
-    }
-})    
-    
+  user: {
+    type: Object,
+    required: true,
+  },
+});
 </script>
 
-<style>
-
-</style>
+<style></style>

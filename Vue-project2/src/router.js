@@ -14,7 +14,7 @@ export const routes = [
     component: () => import("./views/UsersPage.vue"),
   },
   {
-    path: "/users/:id",
-    component: () => import("./views/Pokedox.vue"),
+    path: "/users/:name",
+    component: () => import("./views/UserPage.vue"),
   },
 ];
