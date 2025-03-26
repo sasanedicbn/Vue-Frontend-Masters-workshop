@@ -34,8 +34,6 @@
 
 <script>
 import BaseButton from "@/Base/Base-button.vue";
-import useRouter from "vue-router";
-const router = useRouter();
 export default {
   name: "LoginPage",
   components: {
@@ -89,7 +87,7 @@ export default {
       );
 
       if (!this.error.emailError && !this.error.passwordError) {
-        router.push("/users");
+        this.$router.push("/users");
       } else {
         console.log("Forma nije validna. Popravite greške.");
       }
