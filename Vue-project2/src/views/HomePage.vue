@@ -5,7 +5,9 @@ import UserCard from "../components/UserCard.vue";
 import controlData from "../composables/countStore";
 import { useRouter } from "vue-router";
 import { watch } from "vue";
+// import { useCounterStore } from "../stores/CountStore";
 const { innerValue, incrementCounter } = controlData();
+// const counter = useCounterStore();
 console.log("innerCount", innerValue.value);
 const router = useRouter();
 
@@ -18,6 +20,7 @@ watch(innerValue, () => {
 
 <template>
   <div :class="$style.wrapper">
+    <!-- <p>From store counter:{{ counter.count }}</p> -->
     <h2>Welcome to Home Page</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit magni

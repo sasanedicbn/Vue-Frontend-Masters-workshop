@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export default useCounterStore = defineStore("CountStore", {
+export const useCounterStoreData = defineStore("CountStore", {
   state: () => ({
     count: 0,
     incrementAmount: 80,
@@ -12,3 +12,5 @@ export default useCounterStore = defineStore("CountStore", {
     },
   },
 });
+
+export default sasa = "nedic";
